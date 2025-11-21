@@ -3,10 +3,65 @@ body {
   background-color: #fff8f0;
 }
 .hero {
-  background-image: url('onsen-main.jpg');
+  background-image: url('enjoy.png');
   height: 90vh;
   background-size: cover;
 }
+
+.top-image-full {
+  width: 100%;
+}
+
+.top-image-full img {
+  width: 100%;   /* PCでもスマホでも画面幅いっぱいにする */
+  height: auto;  /* 自動調整で縦横比維持 */
+  display: block;
+}
+
+.hero-main {
+  background-image: url('enjoy.png');
+  background-size: cover;     /* 画面いっぱいに縮尺維持で広げる */
+  background-position: center;
+  height: 90vh;               /* 画面の90%の高さ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.top-image {
+  width: 100%;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.top-image img {
+  width: 100%;        /* 横幅いっぱい */
+  max-width: 1400px;  /* 大きすぎるのを防ぐ */
+  height: auto;       /* 縦横比を維持 */
+  display: block;
+  margin: 0 auto;     /* 中央寄せ */
+  border-radius: 12px;   /* 角丸 → ポップな雰囲気 */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* ふわっと影で見栄えUP */
+}
+
+
+/* 画像に少し暗めのフィルターをかけて文字を見やすくする */
+.hero-main::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.25); /* 透明の黒フィルター */
+}
+
+/* 中央タイトル */
+.hero-main h1 {
+  position: relative;
+  font-size: 4rem;
+  color: white;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
 
 .manner-item img {
   max-width: 100%;
@@ -290,5 +345,3 @@ body {
     gap: 1.25rem;
   }
 }
-
-
