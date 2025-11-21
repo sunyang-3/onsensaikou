@@ -1,0 +1,294 @@
+/* style.css */
+body {
+  background-color: #fff8f0;
+}
+.hero {
+  background-image: url('onsen-main.jpg');
+  height: 90vh;
+  background-size: cover;
+}
+
+.manner-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ローディング画面全体 */
+#loading {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* 最前面に表示 */
+  transition: opacity 0.5s ease;
+}
+
+/* スピナーアニメーション */
+.spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #6fb3c4;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 非表示用クラス */
+#loading.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+
+
+
+.about-slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* セクション内で収まるサイズ */
+  height: 400px;
+  margin: 2rem auto; /* セクション内で中央に配置 */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.about-slideshow img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.about-slideshow img.active {
+  opacity: 1;
+}
+
+#about {
+  position: relative;
+  padding: 4rem 2rem;
+  background-color: #fff8f0; /* セクション全体の色 */
+}
+
+.about-highlight {
+  background-color: rgba(111, 179, 196, 0.2); /* 薄い色 */
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+
+#about::after {
+  content: '';
+  display: block;
+  height: 30px;
+  background: linear-gradient(to bottom, rgba(111,179,196,0.2), transparent);
+}
+
+.manner-item p .icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 0.3rem;
+}
+
+.manner-item {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* 影を少し濃く */
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.manner-item:hover {
+  transform: translateY(-5px);
+}
+
+.manner-item p span.cn {
+  display: block;
+  font-size: 0.9rem;
+  color: #6fb3c4;
+  margin-top: 0.3rem;
+}
+
+#manner h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #6fb3c4;
+  border-bottom: 3px solid #6fb3c4;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+#manner {
+  padding: 4rem 2rem;
+  background: linear-gradient(to bottom, #fff8f0, #e0f7fa);
+}
+
+/* 共通のセクション見出しスタイル */
+section h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #6fb3c4;              /* 温泉カラーで統一 */
+  border-bottom: 3px solid #6fb3c4; /* 下線で強調 */
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .manner-list {
+    grid-template-columns: 1fr; /* 1列表示に切り替え */
+    gap: 1.5rem;
+  }
+}
+
+.manner-item {
+  border-radius: 16px; 
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+.about-slideshow {
+  border-radius: 16px;
+}
+
+.manner-item:hover {
+  transform: translateY(-5px) scale(1.03);
+  transition: transform 0.3s ease;
+}
+
+
+body {
+  background-color: #fffaf0; /* ほんのりピンクがかった背景 */
+}
+
+.manner-item {
+  background-color: #fffdf6; /* ほわっと明るい色 */
+}
+
+.about-slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.about-slideshow img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.about-slideshow img.active {
+  opacity: 1;
+}
+
+/* 共通の泡/星スタイル */
+.bubble {
+  position: absolute;
+  bottom: 0;
+  width: 15px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%; /* 丸に */
+  animation: rise 3s linear infinite;
+  pointer-events: none;
+}
+
+/* 個別にサイズ・位置・速度を変える */
+.bubble1 { left: 10%; width: 8px; height: 8px; animation-duration: 4s; }
+.bubble2 { left: 30%; width: 12px; height: 12px; animation-duration: 5s; }
+.bubble3 { left: 50%; width: 10px; height: 10px; animation-duration: 3.5s; }
+.bubble4 { left: 70%; width: 6px; height: 6px; animation-duration: 4.5s; }
+.bubble5 { left: 85%; width: 14px; height: 14px; animation-duration: 6s; }
+
+/* 上に浮かぶアニメーション */
+@keyframes rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50px) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-150px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+.manner-item:hover {
+  transform: translateY(-5px) rotate(-1deg);
+  transition: transform 0.3s ease;
+}
+
+.btn:hover {
+  box-shadow: 0 0 15px rgba(111,179,196,0.5);
+  transform: scale(1.05);
+}
+
+body {
+  background: linear-gradient(120deg, #fff8f0, #e0f7fa);
+}
+
+/* 親コンテナ（必要なら幅を制限して中央寄せ） */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* マナー一覧：PCで3列、タブレットで2列、スマホで1列 */
+.manner-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* デスクトップは3列 */
+  gap: 2rem;
+  align-items: start;
+  justify-items: stretch;
+}
+
+/* 画像の扱い（縦横比を保って枠に収める） */
+.manner-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+/* レスポンシブ：幅が1024px以下で2列に、768px以下で1列に */
+@media (max-width: 1024px) {
+  .manner-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .manner-list {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+

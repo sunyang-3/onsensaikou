@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>温泉紹介サイト</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: #fff8f0;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header {
+      background-color: #6fb3c4;
+      color: white;
+      padding: 2rem 3rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.25rem;
+    }
+    header > div strong {
+      font-size: 2rem;
+    }
+    header nav a {
+      color: white;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .hero {
+      background-image: url('https://source.unsplash.com/1600x900/?onsen');
+      background-size: cover;
+      background-position: center;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      z-index: 1;
+    }
+    section {
+      padding: 4rem 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s ease-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .manner-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      justify-content: center;
+    }
+    .manner-item {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+    }
+    .manner-item img,
+    .manner-item iframe {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border: none;
+      border-bottom: 1px solid #ddd;
+    }
+    .manner-item p {
+      padding: 1rem;
+    }
+    .manner-item p span.cn {
+      display: block;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      header nav a {
+        margin-left: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong style="font-size: 1.5rem;">Onsen Manners</strong></div>
+    <nav>
+      <a href="#about">介绍・紹介</a>
+      <a href="#manner">温泉礼仪・温泉マナー</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>介绍・紹介</h2>
+    <p>
+     <div class="about-highlight">
+    <p>该网站以外国人容易理解的方式介绍了温泉礼仪。このサイトは、外国人にもわかりやすく温泉マナーを紹介するサイトです。</p>
+  </div>
+</section>  
+     <!-- スライドショー追加 -->
+  <div class="about-slideshow">
+    <img src="beer.png" alt="温泉1" class="active">
+    <img src="wash.png" alt="温泉2">
+    <img src="noise.png" alt="温泉3">
+    <img src="hear.png" alt="温泉4">
+    <img src="tatoo.png" alt="温泉5">
+    <img src="phone.png" alt="温泉6">
+    <img src="swim.png" alt="温泉7">
+    <img src="towel.png" alt="温泉8">
+    <img src="drink.png" alt="温泉9">
+
+  <!-- 星・泡エフェクト -->
+  <div class="bubble bubble1"></div>
+  <div class="bubble bubble2"></div>
+  <div class="bubble bubble3"></div>
+  <div class="bubble bubble4"></div>
+  <div class="bubble bubble5"></div>
+</div>
+
+  </div> 
+  <script>
+const aboutSlides = document.querySelectorAll('.about-slideshow img');
+let aboutCurrent = 0;
+
+setInterval(() => {
+  aboutSlides[aboutCurrent].classList.remove('active');
+  aboutCurrent = (aboutCurrent + 1) % aboutSlides.length;
+  aboutSlides[aboutCurrent].classList.add('active');
+}, 3000); // 3秒ごとに切り替え
+</script>
+    </p>
+  </section>
+
+
+
+
+  <section id="manner">
+    <h2>温泉礼仪・温泉マナー</h2>
+    <div class="manner-list">
+      <div class="manner-item">
+      <img src="beer.png" alt="Beer Image" width="1700" height="1920">
+      <p>饮酒后避免泡温泉<span class="cn">飲酒後の入浴は避けましょう</span></p>
+      </div>
+      <div class="manner-item">
+       <img src="wash.png" alt="wash.png" width="1700" height="1920"> 
+        <p>入浴前请先冲洗身体<span class="cn">入浴前には体を洗いましょう。</span></p>
+      </div>
+      <div class="manner-item">
+        <img src="noise.png" alt="noise.png"  width="1700" height="1920"> 
+        <p>请在温泉中保持安静。<span class="cn">温泉では静かに過ごしましょう。</span></p>
+      </div>
+      <div class="manner-item">
+        <img src="hear.png" alt="hear.png"  width="1700" height="1920"> 
+        <p>长发请扎起<span class="cn">長い髪は束ねて入りましょう</span></p>
+      </div>
+      <div class="manner-item">
+        <img src="tatoo.png" alt="tatoo.png"  width="1700" height="1920"> 
+        <p>	部分温泉禁止有纹身者入内<span class="cn">入れ墨のある方は入浴できない可能性があります</span></p>
+      </div>
+      <div class="manner-item">
+        <img src="phone.png" alt="phone.png"  width="1700" height="1920"> 
+        <p>浴场内禁止拍照。<span class="cn">浴場内での使用は禁止です</span></p>
+      </div>
+      <div class="manner-item">
+        <img src="swim.png" alt="swim.png"  width="1700" height="1920"> 
+        <p>请不要在温泉里游泳<span class="cn">温泉で泳いではいけません</span></p>
+      </div>
+       <div class="manner-item">
+        <img src="towel.png" alt="towel.png"  width="1700" height="1920"> 
+        <p>毛巾不能放进温泉里<span class="cn">タオルはお湯につけてはいけません</span></p>
+      </div>
+       <div class="manner-item">
+        <img src="drink.png" alt="drink.png"  width="1700" height="1920"> 
+        <p>请及时补充水分<span class="cn">水分補給をしましょう</span></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Onsen Manners
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- ローディング画面 -->
+  <div id="loading">
+    <div class="spinner"></div>
+    <p>読み込み中...</p>
+  </div>
+
+  <!-- 既存のコンテンツ -->
+  <header>...</header>
+  <section class="hero">...</section>
+  <section id="about">...</section>
+  ...
+</body>
+
+<script>
+  // ページ読み込み完了後にローディング画面を非表示
+  window.addEventListener('load', function() {
+    const loading = document.getElementById('loading');
+    loading.classList.add('hidden');
+  });
+</script>
+
+<script>
+  window.addEventListener('load', function() {
+    const loading = document.getElementById('loading');
+
+    // 最低3秒待ってから非表示にする
+    setTimeout(function() {
+      loading.classList.add('hidden');
+    }, 3000); // 3000ms = 3秒
+  });
+</script>
+
+
+
+
+
+
+
+
